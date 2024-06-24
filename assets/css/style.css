@@ -1,0 +1,233 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-areas: 
+        "nav"
+        "filtro"
+        "main"
+        "pager"
+        "footer";
+    grid-template-rows: 0.5fr 0.5fr 20fr 0.5fr 0.5fr;
+    width: 100%;
+}
+
+.navegador{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-items: center;
+    background-color: rgb(155, 140, 111);
+    color: white;
+}
+
+.header1{
+    display: flex;
+    flex-direction: row;
+}
+
+.hidden{
+    display: none;
+}
+
+.filtro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    background-color: darkgrey;
+}
+.filtro>p{
+    margin-bottom: 10px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    border: 1px solid rgb(202, 202, 202);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding-bottom: 5px;
+}
+
+.product:hover{
+    transform: scale(1.03);
+}
+.product>img{
+    height:250px;
+    width: 250px;
+}
+.product>p{
+    font-size: 20px;
+    text-wrap: wrap;
+}
+.product>button{
+    background-color: rgb(155, 140, 111);
+    color: white;
+    padding: 6px;
+    border-radius: 10%;
+}
+
+.paginador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+
+footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(155, 140, 111);
+    color: white;
+}
+.no-link{
+    color:white !important;
+}
+
+button:hover{
+    background-color:rgb(153, 121, 57) !important;
+}
+
+/*Version Tablet*/
+@media (width>=576px){
+    .contenedor{
+        width: 100%;
+        grid-template-areas:
+        "nav nav"
+        "filtro main"
+        "filtro pager"
+        "footer footer";
+        grid-template-rows: 1fr 21fr 0.5fr 1fr;
+        grid-template-columns:2fr 10fr;
+    }
+    nav{
+        grid-area: nav;
+    }
+    .header1{
+        display: flex;
+        flex-direction: row;
+    }
+    .dropdown{
+        display: none;
+    }
+    .hidden{
+        display: flex;
+        flex-direction: row;
+        font-size: 20px;
+        gap: 15px;
+    }
+    .hidden>span{
+        display: inline;
+    }
+    .filtro{
+        grid-area: filtro;
+        justify-content: flex-start;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        grid-area: main;
+    }
+    .paginador{
+        grid-area: pager;
+        margin-top: 15px;
+    }
+    footer{
+        grid-area: footer;
+    }
+}
+
+/*Version Desktop*/
+@media (width>=992px){
+    .contenedor{
+        width: 100%;
+        grid-template-areas:
+        "nav filtro"
+        "nav main"
+        "footer pager";
+        grid-template-rows: 0.6fr 8fr 0.5fr;
+        grid-template-columns:2fr 10fr;
+    }
+    .filtro{
+        position: sticky;
+        top: 0;
+    }
+    .filtro>select{
+        width: 90%;
+    }
+    .navegador{
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .header1{
+        display: flex;
+        flex-direction: row;
+        position:sticky;
+        top: 0;
+    }
+    .header1>span{
+        padding-top: 15%;
+        padding-bottom: 10%;
+        text-align: center;
+    }
+    .header1>h3{
+        text-align: center;
+        padding-top: 15%;
+        padding-bottom: 10%;
+    }
+    .header1 i {
+        margin-right: 10px;
+        position: relative;
+        top: 3px;
+    }
+    .hidden{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        position:sticky;
+        top: 105px;
+    }
+    .hidden>span{
+        font-size: 20px;
+    }
+    .paginador{
+        position: sticky;
+        bottom: 0;
+    }
+    footer{
+        position: sticky;
+        bottom: 0;
+    }
+    footer>span{
+        text-align: center;
+    }
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: center;
+    }
+}
